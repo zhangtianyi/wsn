@@ -18,22 +18,20 @@
 // Pointer an XBee packet structure 
 packetXBee* packet; 
 
-// Node identifier
-char* NODE_ID="A01";
-
 // Destination MAC address
 char* MAC_ADDRESS="0013A2004090A932";
 
 // Initial sensor variables
 float temperature = 0.0;
 float dust = 0;
-float audio = 0;
+int audio = 0;
 float light = 0;
 float humidity = 0;
 
-// define Authentication Key and Mote ID for OTAP
+// define Authentication Key and Mote ID for OTAP 
+// A01 is example
 #define key_access "LIBELIUM"
-#define id_mote "A01"
+#define id_mote "WASPMOTE00000A01"
 
 
 void setup()
@@ -91,7 +89,7 @@ void loop()
   frame.createFrame(ASCII, "A01");
   
   // 3.2 Add frame fields
-  frame.addSensor(SENSOR_STR, "senor reading");  
+  frame.addSensor(SENSOR_STR, "#NID:A01");  
 
   frame.addSensor(SENSOR_TCA, temperature);
   frame.addSensor(SENSOR_DUST, dust);
@@ -109,7 +107,7 @@ void loop()
   // Length:  97
   // Frame Type (decimal): 128
   // HEX:     3C 3D 3E 80 07 23 33 38 32 35 33 38 31 36 32 23 41 30 31 23 30 23 53 54 52 3A 73 65 6E 6F 72 20 72 65 61 64 69 6E 67 23 54 43 41 3A 32 33 2E 32 32 23 44 55 53 54 3A 30 2E 34 33 30 23 4D 43 50 3A 35 30 2E 23 4C 55 4D 3A 37 34 2E 31 39 33 23 48 55 4D 41 3A 36 30 2E 31 23 42 41 54 3A 36 39 23 
-  // String:  <=>#382538162#A01#0#STR:senor reading#TCA:23.22#DUST:0.430#MCP:50.#LUM:74.193#HUMA:60.1#BAT:69#
+  // String:  <=>#382538162#A01#0#STR:#NID:A01#TCA:23.22#DUST:0.430#MCP:50.#LUM:74.193#HUMA:60.1#BAT:69#
 
   frame.showFrame();
 
@@ -152,7 +150,7 @@ void loop()
   
   // OTAP window for 59s with LED blinking
   int i=0;
-  for(i=0; i<59; i++)
+  for(i=0; i<259; i++)
   {
       // Check if new data is available
   if( xbee802.available() )
