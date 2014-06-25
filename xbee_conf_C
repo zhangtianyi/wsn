@@ -1,0 +1,18 @@
+# port where the xbee moduel is connected
+port = COM28
+# auth key of network
+auth_key = LIBELIUM
+# pan ID of network
+panID = 0x3332
+# xbee model
+xbeeModel = 802.15.4
+# channel number
+channel = 0xF
+# encryption of network
+encryption = off
+# encryption key of network
+encryptionKey = 1234567890123456
+# name of the file where discarded data goes
+#discardedDataFile = data.txt
+# Waspmote version
+WaspmoteVersion = 11
