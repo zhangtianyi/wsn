@@ -1,4 +1,4 @@
-/× 
+/*
  *  ------ Wireless Sensor Network Test Bed  -------- 
  *  
  *  Explanation: This program is used to get data using Smart City board sensors 
