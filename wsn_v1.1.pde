@@ -228,7 +228,8 @@ void sendData()
   paq_sent = NULL;
 }
 
-// in reall
+// the previous program get the value is the number of Lux, while what we need is just the percent of the max luminosity value
+// so we need this function to do the conversion
 int Lux_conversion(int readValue)
 {
   float lux = 0;
